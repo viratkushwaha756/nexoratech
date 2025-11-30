@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services - Nexora.com</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        :root {
+            --primary-color: #0ef;
+            --dark-bg: #081b29;
+            --darker-bg: #051129;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--dark-bg);
+            color: #fff;
+            overflow-x: hidden;
+        }
+        
+        .navbar {
+            background-color: var(--darker-bg);
+            transition: all 0.3s ease;
+        }
+        
+        .navbar.scrolled {
+            padding: 10px 0;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .logo {
+            font-weight: 700;
+            font-size: 1.8rem;
+            color: #fff;
+        }
+        
+        .logo span {
+            color: var(--primary-color);
+        }
+        
+        .nav-link {
+            color: #fff !important;
+            font-weight: 500;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+        
+        .nav-link:hover {
+            color: var(--primary-color) !important;
+        }
+        
+        .services-hero {
+            min-height: 50vh;
+            background: linear-gradient(rgba(8, 27, 41, 0.9), rgba(8, 27, 41, 0.9)), url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80') no-repeat center center;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding-top: 100px;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+        
+        .section-title span {
+            color: var(--primary-color);
+        }
+        
+        .category-title {
+            font-size: 2rem;
+            font-weight: 600;
+            margin: 4rem 0 2rem;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--primary-color);
+            display: inline-block;
+        }
+        
+        .service-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 30px;
+            height: 100%;
+            transition: all 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            overflow: hidden;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 238, 255, 0.2);
+            border-color: var(--primary-color);
+        }
+        
+        .service-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            transition: transform 0.5s;
+        }
+        
+        .service-card:hover .service-img {
+            transform: scale(1.05);
+        }
+        
+        .service-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        .service-features {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+        
+        .service-features li {
+            padding: 5px 0;
+            position: relative;
+            padding-left: 25px;
+        }
+        
+        .service-features li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+        
+        .btn-primary-custom {
+            background-color: var(--primary-color);
+            color: var(--dark-bg);
+            font-weight: 600;
+            padding: 10px 25px;
+            border-radius: 30px;
+            border: none;
+            transition: all 0.3s;
+            box-shadow: 0 0 15px rgba(0, 238, 255, 0.5);
+        }
+        
+        .btn-primary-custom:hover {
+            box-shadow: 0 0 20px var(--primary-color), 0 0 40px var(--primary-color);
+            transform: translateY(-3px);
+        }
+        
+        .btn-outline-custom {
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            font-weight: 600;
+            padding: 8px 23px;
+            border-radius: 30px;
+            transition: all 0.3s;
+        }
+        
+        .btn-outline-custom:hover {
+            background-color: var(--primary-color);
+            color: var(--dark-bg);
+            box-shadow: 0 0 15px rgba(0, 238, 255, 0.5);
+        }
+        
+        .process-step {
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: var(--primary-color);
+            color: var(--dark-bg);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0 auto 20px;
+        }
+        
+        .footer {
+            background-color: var(--darker-bg);
+            padding: 30px 0;
+            margin-top: 50px;
+        }
+        
+        .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            color: #fff;
+            font-size: 1.2rem;
+            margin: 0 5px;
+            transition: all 0.3s;
+        }
+        
+        .social-icon:hover {
+            background: var(--primary-color);
+            color: var(--dark-bg);
+            transform: translateY(-5px);
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--primary-color);
+            color: var(--dark-bg);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 238, 255, 0.5);
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+        }
+        
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .category-title {
+                font-size: 1.7rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand logo" href="index.html">Nexora<span>.com</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="service.html">Services</a>
+                    </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="project.html">Project</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="portfolio.html">Portfolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Services Hero Section -->
+    <section class="services-hero">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h1 class="display-4 fw-bold mb-4 animate__animated animate__fadeInDown">Our <span style="color: var(--primary-color);">Services</span></h1>
+                    <p class="lead animate__animated animate__fadeInUp">Comprehensive digital solutions to transform your business and drive growth in the digital age.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- IT & Tech Services -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="category-title animate__animated animate__fadeIn">💻 IT & Tech Services</h2>
+            <div class="row g-4">
+                <!-- Website & Web App Development -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-card animate__animated animate__fadeInUp">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Website Development" class="service-img">
+                        <i class='bx bx-code-alt service-icon'></i>
+                        <h4>Website & Web App Development</h4>
+                        <p>Custom websites and web applications built with modern technologies for optimal performance and user experience.</p>
+                        <ul class="service-features">
+                            <li>Responsive Design</li>
+                            <li>E-commerce Solutions</li>
+                            <li>Progressive Web Apps</li>
+                            <li>CMS Development</li>
+                        </ul>
+                        <a href="contact.html" class="btn btn-primary-custom">Get Quote</a>
+                    </div>
+                </div>
+                
+                <!-- Mobile App Development -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-card animate__animated animate__fadeInUp" style="animation-delay: 0.1s;">
+                        <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Mobile App Development" class="service-img">
+                        <i class='bx bxl-android service-icon'></i>
+                        <h4>Mobile App Development</h4>
+                        <p>Native and cross-platform mobile applications for iOS and Android devices with seamless user experiences.</p>
+                        <ul class="service-features">
+                            <li>iOS & Android Apps</li>
+                            <li>React Native & Flutter</li>
+                            <li>App Store Deployment</li>
+                            <li>API Integration</li>
+                        </ul>
+                        <a href="contact.html" class="btn btn-primary-custom">Get Quote</a>
+                    </div>
+                </div>
+                
+                <!-- AI Chatbot Development -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-card animate__animated animate__fadeInUp" style="animation-delay: 0.2s;">
+                        <img src="https://images.unsplash.com/photo-1531746790731-6c087fecd65a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="AI Chatbot Development" class="service-img">
+                        <i class='bx bx-bot service-icon'></i>
+                        <h4>AI Chatbot Development</h4>
+                        <p>Intelligent chatbots and virtual assistants to enhance customer service and automate interactions.</p>
+                        <ul class="service-features">
+                            <li>Natural Language Processing</li>
+                            <li>24/7 Customer Support</li>
+                            <li>Multi-platform Integration</li>
+                            <li>Custom AI Training</li>
+                        </ul>
+                        <a href="contact.html" class="btn btn-primary-custom">Get Quote</a>
+                    </div>
+                </div>
+                
+                <!-- Cloud Hosting & Maintenance -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-card animate__animated animate__fadeInUp" style="animation-delay: 0.3s;">
+                        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Cloud Hosting" class="service-img">
+                        <i class='bx bx-cloud service-icon'></i>
+                        <h4>Cloud Hosting & Maintenance</h4>
+                        <p>Secure cloud infrastructure setup and ongoing maintenance for your digital assets and applications.</p>
+                        <ul class="service-features">
+                            <li>AWS, Azure & Google Cloud</li>
+                            <li>Server Configuration</li>
+                            <li>Security Monitoring</li>
+                            <li>Performance Optimization</li>
+                        </ul>
+                        <a href="contact.html" class="btn btn-primary-custom">Get Quote</a>
+                    </div>
+                </div>
+                
+                <!-- Business Dashboard Development -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-card animate__animated animate__fadeInUp" style="animation-delay: 0.4s;">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Business Dashboard" class="service-img">
+                        <i class='bx bx-line-chart service-icon'></i>
+                        <h4>Business Dashboard Development</h4>
+                        <p>Custom dashboards to visualize your business data and make informed decisions with real-time analytics.</p>
+                        <ul class="service-features">
+                            <li>Real-time Data Visualization</li>
+                            <li>Custom KPI Tracking</li>
+                            <li>Interactive Reports</li>
+                            <li>Multi-source Data Integration</li>
+                        </ul>
+                        <a href="contact.html" class="btn btn-primary-custom">Get Quote</a>
+                    </div>
+                </div>
+                
+                <!-- Automation & Workflow Integration -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-card animate__animated animate__fadeInUp" style="animation-delay: 0.5s;">
+                        <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Automation" class="service-img">
+                        <i class='bx bx-cog service-icon'></i>
+                        <h4>Automation & Workflow Integration</h4>
+                        <p>Streamline your business processes with custom automation solutions and workflow integrations.</p>
+                        <ul class="service-features">
+                            <li>Process Automation</li>
+                            <li>API Integration</li>
+                            <li>Workflow Optimization</li>
+                            <li>Custom Scripting</li>
+                        </ul>
+                        <a href="contact.html" class="btn btn-primary-custom">Get Quote</a>
+                    </div>
+                </div>
+                
+                <!-- Additional IT Services -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-card animate__animated animate__fadeInUp" style="animation-delay: 0.6s;">
+                        <img src="https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="SEO & Digital Marketing" class="service-img">
+                        <i class='bx bx-search-alt service-icon'></i>
+                        <h4>SEO & Digital Marketing Setup</h4>
+                        <p>Comprehensive SEO strategies and digital marketing campaigns to increase your online visibility.</p>
+                        <a href="contact.html" class="btn btn-primary-custom">Get Quote</a>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-card animate__animated animate__fadeInUp" style="animation-delay: 0.7s;">
+                        <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Cybersecurity" class="service-img">
+                        <i class='bx bx-shield-quarter service-icon'></i>
+                        <h4>Cybersecurity Audits & Compliance</h4>
+                        <p>Protect your digital assets with comprehensive security audits and compliance assessments.</p>
+                        <a href="contact.html" class="btn btn-primary-custom">Get Quote</a>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-card animate__animated animate__fadeInUp" style="animation-delay: 0.8s;">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Data Analytics" class="service-img">
+                        <i class='bx bx-data service-icon'></i>
+                        <h4>Data Analytics & Visualization</h4>
+                        <p>Transform your data into actionable insights with advanced analytics and visualization tools.</p>
+                        <a href="contact.html" class="btn btn-primary-custom">Get Quote</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Non-IT / Creative Services -->
+    <section class="py-5 bg-dark">
+        <div class="container">
+            <h2 class="category-title animate__animated animate__fadeIn">🎨 Creative & Business Services</h2>
+            <div class="row g-4">
+                <!-- Video Editing & Motion Graphics -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-card animate__animated animate__fadeInUp">
+                        <img src="asset/vid.png" alt="Video Editing" class="service-img">
+                        <i class='bx bx-video service-icon'></i>
+                        <h4>Video Editing & Motion Graphics</h4>
+                        <p>Professional video editing and animated content for marketing, social media, and corporate communications.</p>
+                        <ul class="service-features">
+                            <li>Corporate Videos</li>
+                            <li>Social Media Content</li>
+                            <li>Animation & Motion Graphics</li>
+                            <li>Color Correction</li>
+                        </ul>
+                        <a href="contact.html" class="btn btn-primary-custom">Get Quote</a>
+                    </div>
+                </div>
+                
+                <!-- Graphic Design & Branding -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-card animate__animated animate__fadeInUp" style="animation-delay: 0.1s;">
+                        <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Graphic Design" class="service-img">
+                        <i class='bx bx-palette service-icon'></i>
+                        <h4>Graphic Design & Branding</h4>
+                        <p>Creative visual identity design that makes your brand stand out across all platforms and mediums.</p>
+                        <ul class="service-features">
+                            <li>Logo & Identity Design</li>
+                            <li>Marketing Materials</li>
+                            <li>Brand Guidelines</li>
+                            <li>Print & Digital Assets</li>
+                        </ul>
+                        <a href="contact.html" class="btn btn-primary-custom">Get Quote</a>
+                    </div>
+                </div>
+                
+                <!-- Content Writing & Copywriting -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-card animate__animated animate__fadeInUp" style="animation-delay: 0.2s;">
+                        <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Content Writing" class="service-img">
+                        <i class='bx bx-edit service-icon'></i>
+                        <h4>Content Writing & Copywriting</h4>
+                        <p>Engaging and persuasive content tailored to your audience, goals, and brand voice.</p>
+                        <ul class="service-features">
+                            <li>Website Content</li>
+                            <li>Blog Posts & Articles</li>
+                            <li>Marketing Copy</li>
+                            <li>SEO-Optimized Content</li>
+                        </ul>
+                        <a href="contact.html" class="btn btn-primary-custom">Get Quote</a>
+                    </div>
+                </div>
+                
+                <!-- Additional Creative Services -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-card animate__animated animate__fadeInUp" style="animation-delay: 0.3s;">
+                        <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Social Media Management" class="service-img">
+                        <i class='bx bxl-instagram service-icon'></i>
+                        <h4>Social Media Management</h4>
+                        <p>Complete social media strategy, content creation, and community management across platforms.</p>
+                        <a href="contact.html" class="btn btn-primary-custom">Get Quote</a>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-card animate__animated animate__fadeInUp" style="animation-delay: 0.4s;">
+                        <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Photography" class="service-img">
+                        <i class='bx bx-camera service-icon'></i>
+                        <h4>Photography & Product Shoots</h4>
+                        <p>Professional photography services for products, corporate events, and marketing materials.</p>
+                        <a href="contact.html" class="btn btn-primary-custom">Get Quote</a>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-card animate__animated animate__fadeInUp" style="animation-delay: 0.5s;">
+                        <img src="https://images.unsplash.com/photo-1590602847861-f357a9332bbc?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Voiceover" class="service-img">
+                        <i class='bx bx-microphone service-icon'></i>
+                        <h4>Voiceover & Podcast Editing</h4>
+                        <p>Professional voiceover services and podcast production for your audio content needs.</p>
+                        <a href="contact.html" class="btn btn-primary-custom">Get Quote</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Educational Services -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="category-title animate__animated animate__fadeIn">🎓 Educational & Training Services</h2>
+            <div class="row g-4">
+                <!-- Online Courses & E-Learning -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-card animate__animated animate__fadeInUp">
+                        <img src="https://images.unsplash.com/photo-1501504905252-473c47e087f8?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Online Courses" class="service-img">
+                        <i class='bx bx-book-open service-icon'></i>
+                        <h4>Online Courses & E-Learning</h4>
+                        <p>Create engaging e-learning experiences with custom online courses and learning management systems.</p>
+                        <ul class="service-features">
+                            <li>Course Development</li>
+                            <li>LMS Integration</li>
+                            <li>Interactive Content</li>
+                            <li>Assessment Tools</li>
+                        </ul>
+                        <a href="contact.html" class="btn btn-primary-custom">Get Quote</a>
+                    </div>
+                </div>
+                
+                <!-- Corporate Skill Development -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-card animate__animated animate__fadeInUp" style="animation-delay: 0.1s;">
+                        <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Corporate Training" class="service-img">
+                        <i class='bx bx-group service-icon'></i>
+                        <h4>Corporate Skill Development</h4>
+                        <p>Workshops and training programs to upskill your team in technology, leadership, and digital tools.</p>
+                        <ul class="service-features">
+                            <li>Technical Training</li>
+                            <li>Leadership Development</li>
+                            <li>Digital Literacy</li>
+                            <li>Custom Curriculum</li>
+                        </ul>
+                        <a href="contact.html" class="btn btn-primary-custom">Get Quote</a>
+                    </div>
+                </div>
+                
+                <!-- Internship & Mentorship -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-card animate__animated animate__fadeInUp" style="animation-delay: 0.2s;">
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Internship Program" class="service-img">
+                        <i class='bx bx-briefcase service-icon'></i>
+                        <h4>Internship & Project Mentorship</h4>
+                        <p>Structured programs to nurture the next generation of tech talent through hands-on experience.</p>
+                        <ul class="service-features">
+                            <li>Project-Based Learning</li>
+                            <li>Industry Mentorship</li>
+                            <li>Skill Development</li>
+                            <li>Career Guidance</li>
+                        </ul>
+                        <a href="contact.html" class="btn btn-primary-custom">Get Quote</a>
+                    </div>
+                </div>
+                
+                <!-- Additional Educational Services -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-card animate__animated animate__fadeInUp" style="animation-delay: 0.3s;">
+                        <img src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Tech Bootcamps" class="service-img">
+                        <i class='bx bx-laptop service-icon'></i>
+                        <h4>Tech Bootcamps (Web, AI, Cloud)</h4>
+                        <p>Intensive training programs to quickly develop skills in high-demand technology areas.</p>
+                        <a href="contact.html" class="btn btn-primary-custom">Get Quote</a>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-card animate__animated animate__fadeInUp" style="animation-delay: 0.4s;">
+                        <img src="https://images.unsplash.com/photo-1521791055366-0d553872125f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Career Guidance" class="service-img">
+                        <i class='bx bx-user-voice service-icon'></i>
+                        <h4>Digital Literacy & Career Guidance</h4>
+                        <p>Programs to enhance digital skills and provide career guidance for students and professionals.</p>
+                        <a href="contact.html" class="btn btn-primary-custom">Get Quote</a>
+                    </div>
+                </div>
+
+
+                
+            <!-- NEW: Digital Skills Certification -->
+            <div class="col-md-6 col-lg-4">
+                <div class="service-card animate__animated animate__fadeInUp" style="animation-delay: 0.5s;">
+                    <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Digital Certification" class="service-img">
+                    <i class='bx bx-certification service-icon'></i>
+                    <h4>Digital Skills Certification</h4>
+                    <p>Industry-recognized certification programs to validate digital competencies and enhance career prospects.</p>
+                    <ul class="service-features">
+                        <li>Microsoft Office Specialist</li>
+                        <li>Google Digital Garage</li>
+                        <li>Adobe Certified Professional</li>
+                        <li>Custom Certification Programs</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-primary-custom">Get Quote</a>
+                </div>
+            </div>
+
+
+
+
+
+
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- Process Section -->
+    <section class="py-5 bg-dark">
+        <div class="container">
+            <h2 class="section-title">Our <span>Process</span></h2>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="process-step">
+                        <div class="step-number">1</div>
+                        <h4>Discovery</h4>
+                        <p>We understand your business goals, challenges, and requirements through detailed consultations.</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="process-step">
+                        <div class="step-number">2</div>
+                        <h4>Planning</h4>
+                        <p>We create a customized strategy and project plan tailored to your specific needs and timeline.</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="process-step">
+                        <div class="step-number">3</div>
+                        <h4>Execution</h4>
+                        <p>Our expert team implements the solution with regular updates and collaboration throughout the process.</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="process-step">
+                        <div class="step-number">4</div>
+                        <h4>Support</h4>
+                        <p>We provide ongoing maintenance, updates, and support to ensure your continued success.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-5">
+        <div class="container text-center">
+            <h2 class="mb-4">Ready to Transform Your Business?</h2>
+            <p class="lead mb-4">Let's discuss how our services can help you achieve your digital goals.</p>
+            <a href="contact.html" class="btn btn-primary-custom me-3">Get Started</a>
+            <a href="portfolio.html" class="btn btn-outline-custom">View Our Work</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h4 class="mb-3">Nexora<span>.</span></h4>
+                    <p>Innovating Beyond Tomorrow - Transforming businesses through technology, intelligence, and creativity.</p>
+                    <div class="mt-3">
+                        <a href="#" class="social-icon"><i class='bx bxl-facebook'></i></a>
+                        <a href="#" class="social-icon"><i class='bx bxl-twitter'></i></a>
+                        <a href="#" class="social-icon"><i class='bx bxl-instagram'></i></a>
+                        <a href="#" class="social-icon"><i class='bx bxl-linkedin'></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5 class="mb-3">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html" class="text-light text-decoration-none">Home</a></li>
+                        <li><a href="about.html" class="text-light text-decoration-none">About</a></li>
+                        <li><a href="services.html" class="text-light text-decoration-none">Services</a></li>
+                        <li><a href="portfolio.html" class="text-light text-decoration-none">Portfolio</a></li>
+                        <li><a href="contact.html" class="text-light text-decoration-none">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5 class="mb-3">Services</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-light text-decoration-none">Web Development</a></li>
+                        <li><a href="#" class="text-light text-decoration-none">Mobile Apps</a></li>
+                        <li><a href="#" class="text-light text-decoration-none">AI Solutions</a></li>
+                        <li><a href="#" class="text-light text-decoration-none">Digital Marketing</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5 class="mb-3">Contact Us</h5>
+                    <ul class="list-unstyled">
+                         <li class="mb-2"><i class='bx bx-envelope me-2'></i>prathmeshmohite1904@gmail.com</li>
+                        <li class="mb-2"><i class='bx bx-phone me-2'></i> +91 7385154120</li>
+                        <li class="mb-2"><i class='bx bx-map me-2'></i> Akurdi pune</li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="text-center">
+                <p>&copy; 2023 Nexora.com. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top">
+        <i class='bx bx-chevron-up'></i>
+    </a>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 50) {
+                document.querySelector('.navbar').classList.add('scrolled');
+            } else {
+                document.querySelector('.navbar').classList.remove('scrolled');
+            }
+            
+            // Back to top button
+            if (window.scrollY > 300) {
+                document.querySelector('.back-to-top').classList.add('active');
+            } else {
+                document.querySelector('.back-to-top').classList.remove('active');
+            }
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

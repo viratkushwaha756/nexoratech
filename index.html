@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexora.com - Innovating Beyond Tomorrow</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <script src="https://unpkg.com/typed.js@2.0.15/dist/typed.umd.js"></script>
+    <style>
+        :root {
+            --primary-color: #0ef;
+            --dark-bg: #081b29;
+            --darker-bg: #051129;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--dark-bg);
+            color: #fff;
+            overflow-x: hidden;
+        }
+        
+        .navbar {
+            background-color: var(--darker-bg);
+            transition: all 0.3s ease;
+        }
+        
+        .navbar.scrolled {
+            padding: 10px 0;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .logo {
+            font-weight: 700;
+            font-size: 1.8rem;
+            color: #fff;
+        }
+        
+        .logo span {
+            color: var(--primary-color);
+        }
+        
+        .nav-link {
+            color: #fff !important;
+            font-weight: 500;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+        
+        .nav-link:hover {
+            color: var(--primary-color) !important;
+        }
+        
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(rgba(8, 27, 41, 0.9), rgba(8, 27, 41, 0.9)), url('asset/Noffice.png') no-repeat center center;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+        
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .hero-content h1 span {
+            color: var(--primary-color);
+        }
+        
+        .typed-text {
+            color: var(--primary-color);
+        }
+        
+        .btn-primary-custom {
+            background-color: var(--primary-color);
+            color: var(--dark-bg);
+            font-weight: 600;
+            padding: 12px 30px;
+            border-radius: 30px;
+            border: none;
+            transition: all 0.3s;
+            box-shadow: 0 0 15px rgba(0, 238, 255, 0.5);
+        }
+        
+        .btn-primary-custom:hover {
+            box-shadow: 0 0 20px var(--primary-color), 0 0 40px var(--primary-color);
+            transform: translateY(-3px);
+        }
+        
+        .btn-outline-custom {
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            font-weight: 600;
+            padding: 10px 28px;
+            border-radius: 30px;
+            transition: all 0.3s;
+        }
+        
+        .btn-outline-custom:hover {
+            background-color: var(--primary-color);
+            color: var(--dark-bg);
+            box-shadow: 0 0 15px rgba(0, 238, 255, 0.5);
+        }
+        
+        
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+        
+        .section-title span {
+            color: var(--primary-color);
+        }
+        
+        .service-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 30px;
+            height: 100%;
+            transition: all 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 238, 255, 0.2);
+            border-color: var(--primary-color);
+        }
+        
+        .service-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .service-img {
+         width: 100%;
+         height: 200px;
+         object-fit: cover;
+          border-radius: 10px 10px 0 0;
+          margin-bottom: 20px;
+      }
+
+       .service-card {
+       position: relative;
+      overflow: hidden;
+       }
+
+     .service-icon {
+      position: relative;
+      z-index: 2;
+       }
+        
+        .about-img {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .skill-item {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 15px;
+            transition: all 0.3s;
+        }
+        
+        .skill-item:hover {
+            background: rgba(0, 238, 255, 0.1);
+            transform: translateX(5px);
+        }
+        
+        .contact-form input, .contact-form textarea {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 15px;
+            color: #fff;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        
+        .contact-form input:focus, .contact-form textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 10px rgba(0, 238, 255, 0.3);
+        }
+        
+        .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            color: #fff;
+            font-size: 1.5rem;
+            margin-right: 15px;
+            transition: all 0.3s;
+        }
+        
+        .social-icon:hover {
+            background: var(--primary-color);
+            color: var(--dark-bg);
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 238, 255, 0.5);
+        }
+        
+        .footer {
+            background-color: var(--darker-bg);
+            padding: 30px 0;
+            margin-top: 50px;
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--primary-color);
+            color: var(--dark-bg);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 238, 255, 0.5);
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+        }
+        
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand logo" href="index.html">Nexora<span>.com</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="service.html">Services</a>
+                    </li>
+                       <li class="nav-item">
+                        <a class="nav-link" href="project.html">Project</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="portfolio.html">Portfolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="hero-content">
+                        <h1 class="animate__animated animate__fadeInDown">Innovating <span>Beyond Tomorrow</span></h1>
+                        <p class="lead mb-4 animate__animated animate__fadeInUp">Nexora delivers cutting-edge solutions in Web Development, AI Integration, Cloud Computing, and Digital Marketing — all under one roof.</p>
+                        <div class="mb-4 animate__animated animate__fadeInUp">
+                            <h3>We are <span class="typed-text"></span></h3>
+                        </div>
+                        <div class="animate__animated animate__fadeInUp">
+                            <a href="service.html" class="btn btn-primary-custom me-3">Our Services</a>
+                            <a href="contact.html" class="btn btn-outline-custom">Get In Touch</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 text-center animate__animated animate__fadeIn">
+                    <img src="asset/N-logo.png" alt="Nexora Logo" class="img-fluid" style="max-height: 500px;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-5">
+        <div class="container">
+            <h2 class="section-title">About <span>Nexora</span></h2>
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4">
+                    <div class="about-img">
+                        <img src="asset/Noffice.png" alt="Nexora Office" class="img-fluid">
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <h3 class="mb-3">Transforming Businesses Through Technology</h3>
+                    <p class="mb-4">Nexora.com is a next-generation IT and digital innovation company driven by the vision of transforming businesses through technology, intelligence, and creativity.</p>
+                    <p class="mb-4">Founded by a passionate team of young innovators, Nexora delivers cutting-edge solutions in Web Development, AI Integration, Cloud Computing, Automation, and Digital Marketing — all under one roof.</p>
+                    <p class="mb-4">At Nexora, we believe in empowering startups, enterprises, and individuals with smart, scalable, and sustainable digital ecosystems.</p>
+                    <a href="about.html" class="btn btn-primary-custom">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Services Section -->
+<section id="services" class="py-5 bg-dark">
+    <div class="container">
+        <h2 class="section-title">Our <span>Services</span></h2>
+        <div class="row g-4">
+            <!-- IT Services -->
+            <div class="col-md-6 col-lg-4">
+                <div class="service-card">
+                    <img src="asset/web.jpg" alt="Web Development" class="service-img">
+                    <i class='bx bx-code-alt service-icon'></i>
+                    <h4>Website & Web App Development</h4>
+                    <p>Custom websites and web applications built with modern technologies for optimal performance and user experience.</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Mobile App Development" class="service-img">
+                    <i class='bx bxl-android service-icon'></i>
+                    <h4>Mobile App Development</h4>
+                    <p>Native and cross-platform mobile applications for iOS and Android devices.</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1531746790731-6c087fecd65a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="AI Chatbot" class="service-img">
+                    <i class='bx bx-bot service-icon'></i>
+                    <h4>AI Chatbot Development</h4>
+                    <p>Intelligent chatbots and virtual assistants to enhance customer service and automate interactions.</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Cloud Hosting" class="service-img">
+                    <i class='bx bx-cloud service-icon'></i>
+                    <h4>Cloud Hosting & Maintenance</h4>
+                    <p>Secure cloud infrastructure setup and ongoing maintenance for your digital assets.</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Business Dashboard" class="service-img">
+                    <i class='bx bx-line-chart service-icon'></i>
+                    <h4>Business Dashboard Development</h4>
+                    <p>Custom dashboards to visualize your business data and make informed decisions.</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Automation" class="service-img">
+                    <i class='bx bx-cog service-icon'></i>
+                    <h4>Automation & Workflow Integration</h4>
+                    <p>Streamline your business processes with custom automation solutions.</p>
+                </div>
+            </div>
+            
+            <!-- Non-IT Services -->
+            <div class="col-md-6 col-lg-4">
+                <div class="service-card">
+                    <img src="asset/vid.png" alt="Video Editing" class="service-img">
+                    <i class='bx bx-video service-icon'></i>
+                    <h4>Video Editing & Motion Graphics</h4>
+                    <p>Professional video editing and animated content for marketing and communication.</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Graphic Design" class="service-img">
+                    <i class='bx bx-palette service-icon'></i>
+                    <h4>Graphic Design & Branding</h4>
+                    <p>Creative visual identity design that makes your brand stand out.</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Content Writing" class="service-img">
+                    <i class='bx bx-edit service-icon'></i>
+                    <h4>Content Writing & Copywriting</h4>
+                    <p>Engaging and persuasive content tailored to your audience and goals.</p>
+                </div>
+            </div>
+            
+            <!-- Educational Services -->
+            <div class="col-md-6 col-lg-4">
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1501504905252-473c47e087f8?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Online Courses" class="service-img">
+                    <i class='bx bx-book-open service-icon'></i>
+                    <h4>Online Course Development</h4>
+                    <p>Create engaging e-learning experiences with custom online courses.</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Corporate Training" class="service-img">
+                    <i class='bx bx-group service-icon'></i>
+                    <h4>Corporate Skill Development</h4>
+                    <p>Workshops and training programs to upskill your team.</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Internship Program" class="service-img">
+                    <i class='bx bx-briefcase service-icon'></i>
+                    <h4>Internship & Mentorship Programs</h4>
+                    <p>Structured programs to nurture the next generation of tech talent.</p>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-5">
+            <a href="service.html" class="btn btn-primary-custom">View All Services</a>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+    <!-- Skills/Technologies Section -->
+    <section id="technologies" class="py-5">
+        <div class="container">
+            <h2 class="section-title">Technologies <span>We Use</span></h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <h4 class="mb-4">Frontend Technologies</h4>
+                    <div class="skill-item">HTML5, CSS3, JavaScript</div>
+                    <div class="skill-item">React.js, Angular, Vue.js</div>
+                    <div class="skill-item">Bootstrap, Tailwind CSS</div>
+                    <div class="skill-item">TypeScript, jQuery</div>
+                </div>
+                <div class="col-md-6">
+                    <h4 class="mb-4">Backend & Database</h4>
+                    <div class="skill-item">Node.js, Express.js</div>
+                    <div class="skill-item">Python, Django, Flask</div>
+                    <div class="skill-item">PHP, Laravel</div>
+                    <div class="skill-item">MySQL, MongoDB, PostgreSQL</div>
+                </div>
+                <div class="col-md-6 mt-4">
+                    <h4 class="mb-4">Mobile & Cloud</h4>
+                    <div class="skill-item">React Native, Flutter</div>
+                    <div class="skill-item">iOS, Android Native</div>
+                    <div class="skill-item">AWS, Azure, Google Cloud</div>
+                    <div class="skill-item">Firebase, Heroku</div>
+                </div>
+                <div class="col-md-6 mt-4">
+                    <h4 class="mb-4">AI & Data Science</h4>
+                    <div class="skill-item">Machine Learning, Deep Learning</div>
+                    <div class="skill-item">TensorFlow, PyTorch</div>
+                    <div class="skill-item">Data Analytics, Power BI</div>
+                    <div class="skill-item">Natural Language Processing</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-5 bg-dark">
+        <div class="container text-center">
+            <h2 class="mb-4">Ready to Transform Your Business?</h2>
+            <p class="lead mb-4">Let's discuss how Nexora can help you achieve your digital goals.</p>
+            <a href="contact.html" class="btn btn-primary-custom me-3">Start a Project</a>
+            <a href="about.html" class="btn btn-outline-custom">Learn More About Us</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h4 class="mb-3">Nexora<span>.</span></h4>
+                    <p>Innovating Beyond Tomorrow - Transforming businesses through technology, intelligence, and creativity.</p>
+                    <div class="mt-3">
+                        <a href="#" class="social-icon"><i class='bx bxl-facebook'></i></a>
+                        <a href="#" class="social-icon"><i class='bx bxl-twitter'></i></a>
+                        <a href="#" class="social-icon"><i class='bx bxl-instagram'></i></a>
+                        <a href="#" class="social-icon"><i class='bx bxl-linkedin'></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5 class="mb-3">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html" class="text-light text-decoration-none">Home</a></li>
+                        <li><a href="about.html" class="text-light text-decoration-none">About</a></li>
+                        <li><a href="service.html" class="text-light text-decoration-none">Services</a></li>
+                        <li><a href="portfolio.html" class="text-light text-decoration-none">Portfolio</a></li>
+                        <li><a href="contact.html" class="text-light text-decoration-none">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5 class="mb-3">Services</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-light text-decoration-none">Web Development</a></li>
+                        <li><a href="#" class="text-light text-decoration-none">Mobile Apps</a></li>
+                        <li><a href="#" class="text-light text-decoration-none">AI Solutions</a></li>
+                        <li><a href="#" class="text-light text-decoration-none">Digital Marketing</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5 class="mb-3">Contact Us</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class='bx bx-envelope me-2'></i>prathmeshmohite1904@gmail.com</li>
+                        <li class="mb-2"><i class='bx bx-phone me-2'></i> +91 7385154120</li>
+                        <li class="mb-2"><i class='bx bx-map me-2'></i> Akurdi pune</li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="text-center">
+                <p>&copy; 2023 Nexora.com. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top">
+        <i class='bx bx-chevron-up'></i>
+    </a>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Initialize Typed.js
+        document.addEventListener('DOMContentLoaded', function() {
+            var typed = new Typed('.typed-text', {
+                strings: ['Web Developers', 'AI Specialists', 'Digital Innovators', 'Your Technology Partner'],
+                typeSpeed: 50,
+                backSpeed: 30,
+                backDelay: 2000,
+                loop: true
+            });
+            
+            // Navbar scroll effect
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    document.querySelector('.navbar').classList.add('scrolled');
+                } else {
+                    document.querySelector('.navbar').classList.remove('scrolled');
+                }
+                
+                // Back to top button
+                if (window.scrollY > 300) {
+                    document.querySelector('.back-to-top').classList.add('active');
+                } else {
+                    document.querySelector('.back-to-top').classList.remove('active');
+                }
+            });
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 70,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
